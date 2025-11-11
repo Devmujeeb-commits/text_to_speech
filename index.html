@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎤 Text to Speech</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 50px;
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    textarea {
+      width: 80%;
+      max-width: 700px;
+      height: 150px;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      resize: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      background: #ff7e5f;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #feb47b;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎤 Text-to-Speech Converter</h1>
+  <textarea id="text" placeholder="Type something to hear it..."></textarea><br>
+  <button onclick="speakText()">🔊 Speak</button>
+
+  <script>
+    function speakText() {
+      const text = document.getElementById('text').value.trim();
+      if (text === "") {
+        alert("Please type something first!");
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
